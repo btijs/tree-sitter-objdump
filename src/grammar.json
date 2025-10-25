@@ -36,8 +36,8 @@
           "type": "FIELD",
           "name": "section_name",
           "content": {
-            "type": "PATTERN",
-            "value": "\\.[A-Za-z0-9_.@\\$+\\-<>]+"
+            "type": "SYMBOL",
+            "name": "section_name"
           }
         },
         {
@@ -45,6 +45,10 @@
           "value": ":"
         }
       ]
+    },
+    "section_name": {
+      "type": "PATTERN",
+      "value": "\\.[A-Za-z0-9_.@\\$+\\-<>]+"
     },
     "function": {
       "type": "PREC_RIGHT",

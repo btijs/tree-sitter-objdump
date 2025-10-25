@@ -29,9 +29,11 @@ module.exports = grammar({
     section_header: ($) =>
       seq(
         "Disassembly of section ",
-        field("section_name", /\.[A-Za-z0-9_.@\$+\-<>]+/), // e.g. .text
+        field("section_name", $.section_name), // e.g. .text
         ":",
       ),
+
+    section_name: ($) => /\.[A-Za-z0-9_.@\$+\-<>]+/,
 
     function: ($) =>
       prec.right(

@@ -21,8 +21,8 @@
 
 enum ts_symbol_identifiers {
   anon_sym_Disassemblyofsection = 1,
-  aux_sym_section_header_token1 = 2,
-  anon_sym_COLON = 3,
+  anon_sym_COLON = 2,
+  sym_section_name = 3,
   anon_sym_DOT_DOT_DOT = 4,
   aux_sym_function_header_token1 = 5,
   anon_sym_SPACE = 6,
@@ -76,8 +76,8 @@ enum ts_symbol_identifiers {
 static const char * const ts_symbol_names[] = {
   [ts_builtin_sym_end] = "end",
   [anon_sym_Disassemblyofsection] = "Disassembly of section ",
-  [aux_sym_section_header_token1] = "section_header_token1",
   [anon_sym_COLON] = ":",
+  [sym_section_name] = "section_name",
   [anon_sym_DOT_DOT_DOT] = "...",
   [aux_sym_function_header_token1] = "function_header_token1",
   [anon_sym_SPACE] = " ",
@@ -131,8 +131,8 @@ static const char * const ts_symbol_names[] = {
 static const TSSymbol ts_symbol_map[] = {
   [ts_builtin_sym_end] = ts_builtin_sym_end,
   [anon_sym_Disassemblyofsection] = anon_sym_Disassemblyofsection,
-  [aux_sym_section_header_token1] = aux_sym_section_header_token1,
   [anon_sym_COLON] = anon_sym_COLON,
+  [sym_section_name] = sym_section_name,
   [anon_sym_DOT_DOT_DOT] = anon_sym_DOT_DOT_DOT,
   [aux_sym_function_header_token1] = aux_sym_function_header_token1,
   [anon_sym_SPACE] = anon_sym_SPACE,
@@ -192,13 +192,13 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [aux_sym_section_header_token1] = {
-    .visible = false,
-    .named = false,
-  },
   [anon_sym_COLON] = {
     .visible = true,
     .named = false,
+  },
+  [sym_section_name] = {
+    .visible = true,
+    .named = true,
   },
   [anon_sym_DOT_DOT_DOT] = {
     .visible = true,
@@ -552,7 +552,7 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [90] = 90,
 };
 
-static const TSCharacterRange aux_sym_section_header_token1_character_set_1[] = {
+static const TSCharacterRange sym_section_name_character_set_1[] = {
   {'$', '$'}, {'+', '+'}, {'-', '.'}, {'0', '9'}, {'<', '<'}, {'>', '>'}, {'@', 'Z'}, {'_', '_'},
   {'a', 'z'},
 };
@@ -572,7 +572,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         '-', 128,
         '.', 9,
         '0', 135,
-        ':', 60,
+        ':', 59,
         '<', 54,
         '@', 186,
         '[', 130,
@@ -859,7 +859,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'f')) ADVANCE(49);
       END_STATE();
     case 53:
-      if (set_contains(aux_sym_section_header_token1_character_set_1, 9, lookahead)) ADVANCE(59);
+      if (set_contains(sym_section_name_character_set_1, 9, lookahead)) ADVANCE(60);
       END_STATE();
     case 54:
       if (lookahead != 0 &&
@@ -882,7 +882,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         ',', 68,
         '.', 34,
         '0', 36,
-        ':', 60,
+        ':', 59,
         '<', 54,
         'D', 20,
         ']', 131,
@@ -900,18 +900,18 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_Disassemblyofsection);
       END_STATE();
     case 59:
-      ACCEPT_TOKEN(aux_sym_section_header_token1);
-      if (set_contains(aux_sym_section_header_token1_character_set_1, 9, lookahead)) ADVANCE(59);
+      ACCEPT_TOKEN(anon_sym_COLON);
       END_STATE();
     case 60:
-      ACCEPT_TOKEN(anon_sym_COLON);
+      ACCEPT_TOKEN(sym_section_name);
+      if (set_contains(sym_section_name_character_set_1, 9, lookahead)) ADVANCE(60);
       END_STATE();
     case 61:
       ACCEPT_TOKEN(anon_sym_DOT_DOT_DOT);
       END_STATE();
     case 62:
       ACCEPT_TOKEN(aux_sym_function_header_token1);
-      if (lookahead == ':') ADVANCE(60);
+      if (lookahead == ':') ADVANCE(59);
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') ADVANCE(63);
       END_STATE();
@@ -2934,7 +2934,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(9), 1,
       aux_sym_bytes_token2,
     ACTIONS(210), 1,
-      aux_sym_section_header_token1,
+      sym_section_name,
   [925] = 2,
     ACTIONS(9), 1,
       aux_sym_bytes_token2,

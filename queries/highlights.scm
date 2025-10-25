@@ -24,6 +24,7 @@
 
 ; Section headers
 (section_header) @namespace
+(section_name) @namespace
 
 ; Branch addresses' labels
 (branch_address

@@ -1,0 +1,359 @@
+[
+  {
+    "type": "branch_address",
+    "named": true,
+    "fields": {
+      "address": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          }
+        ]
+      },
+      "label": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "label",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "bytes",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_header",
+          "named": true
+        },
+        {
+          "type": "instruction_line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_header",
+    "named": true,
+    "fields": {
+      "address": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          }
+        ]
+      },
+      "label": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "label",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "immediate",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "inline_comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "instruction_line",
+    "named": true,
+    "fields": {
+      "address": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          }
+        ]
+      },
+      "bytes": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "bytes",
+            "named": true
+          }
+        ]
+      },
+      "data_value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "mnemonic": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "mnemonic",
+            "named": true
+          }
+        ]
+      },
+      "operands": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "operands",
+            "named": true
+          }
+        ]
+      },
+      "raw_data": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "inline_comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operands",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "branch_address",
+          "named": true
+        },
+        {
+          "type": "immediate",
+          "named": true
+        },
+        {
+          "type": "register",
+          "named": true
+        },
+        {
+          "type": "register_offset",
+          "named": true
+        },
+        {
+          "type": "register_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "register",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "register_offset",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "immediate",
+          "named": true
+        },
+        {
+          "type": "register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "register_set",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function",
+          "named": true
+        },
+        {
+          "type": "section_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section_header",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "word",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "...",
+    "named": false
+  },
+  {
+    "type": ".word",
+    "named": false
+  },
+  {
+    "type": "0x",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "Disassembly of section ",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "address",
+    "named": true
+  },
+  {
+    "type": "label",
+    "named": true
+  },
+  {
+    "type": "lsl",
+    "named": false
+  },
+  {
+    "type": "mnemonic",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

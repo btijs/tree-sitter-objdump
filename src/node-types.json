@@ -76,6 +76,11 @@
     }
   },
   {
+    "type": "hex_number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "immediate",
     "named": true,
     "fields": {}
@@ -159,6 +164,32 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "label",
+    "named": true,
+    "fields": {
+      "label_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "label_name",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -304,6 +335,10 @@
     "named": false
   },
   {
+    "type": "+",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
@@ -328,6 +363,14 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
     "type": "@",
     "named": false
   },
@@ -348,7 +391,7 @@
     "named": true
   },
   {
-    "type": "label",
+    "type": "label_name",
     "named": true
   },
   {

@@ -115,7 +115,15 @@ module.exports = grammar({
     bytes: ($) => repeat1(seq(/[0-9a-fA-F]{4}/, /\s/)),
     word: ($) => seq(optional("0x"), /[0-9a-fA-F]{8}/),
     mnemonic: ($) => /[A-Za-z][A-Za-z0-9\.\_]*/,
-    label: ($) => /<[^>]+>/,
+    hex_number: ($) => seq("0x", /[a-fA-F0-9]+/),
+    label: ($) =>
+      seq(
+        "<", //
+        field("label_name", $.label_name),
+        optional(seq("+", field("offset", $.hex_number))),
+        ">",
+      ),
+    label_name: ($) => /[a-zA-Z0-9\_]+/,
   },
 });
 

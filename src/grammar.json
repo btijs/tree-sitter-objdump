@@ -543,9 +543,68 @@
       "type": "PATTERN",
       "value": "[A-Za-z][A-Za-z0-9\\.\\_]*"
     },
+    "hex_number": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "0x"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-fA-F0-9]+"
+        }
+      ]
+    },
     "label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "FIELD",
+          "name": "label_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "label_name"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "+"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "offset",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "hex_number"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "label_name": {
       "type": "PATTERN",
-      "value": "<[^>]+>"
+      "value": "[a-zA-Z0-9\\_]+"
     }
   },
   "extras": [

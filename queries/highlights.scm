@@ -3,7 +3,14 @@
 
 ; Function labels like <main>
 (function_header
-  label: (_) @function)
+  label: (label
+    label_name: (label_name) @function.definition))
+(branch_address
+  label: (label
+    label_name: (label_name) @function.call))
+(label
+  offset: (_) @constant)
+
 
 ; Mnemonics (e.g. mov, vmov, add)
 (mnemonic) @function.macro

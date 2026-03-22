@@ -129,7 +129,7 @@ module.exports = grammar({
     word: ($) => seq("0x", /[0-9a-fA-F]{8}/),
     short: ($) => seq("0x", /[0-9a-fA-F]{4}/),
     byte: ($) => seq("0x", /[0-9a-fA-F]{2}/),
-    mnemonic: ($) => /[A-Za-z][A-Za-z\.]*/,
+    mnemonic: ($) => /[A-Za-z][A-Za-z\.0-9]*/,
     hex_number: ($) => seq("0x", /[a-fA-F0-9]+/),
     label: ($) =>
       seq(

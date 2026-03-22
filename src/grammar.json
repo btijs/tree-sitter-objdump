@@ -873,7 +873,7 @@
     },
     "mnemonic": {
       "type": "PATTERN",
-      "value": "[A-Za-z][A-Za-z\\.]*"
+      "value": "[A-Za-z][A-Za-z\\.0-9]*"
     },
     "hex_number": {
       "type": "SEQ",

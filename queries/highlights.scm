@@ -11,7 +11,6 @@
 (label
   offset: (_) @constant)
 
-
 ; Mnemonics (e.g. mov, vmov, add)
 (mnemonic) @function.macro
 
@@ -22,17 +21,18 @@
 (immediate) @constant
 
 ; Bytes and words
-(bytes) @string.special
+(raw_instr) @string.special
+(raw_byte) @string.special
+(raw_short) @string.special
+(raw_word) @string.special
+
+(byte) @string.special
+(short) @string.special
 (word) @string.special
 
-; Inline or full-line comments
-; (comment) @comment
+; Comments
 (inline_comment) @comment
 
 ; Section headers
-(section_header) @namespace
-(section_name) @namespace
-
-; Branch addresses' labels
-(branch_address
-  label: (_) @label)
+(section_header
+  section_name: (section_name) @enum)
